@@ -1,2 +1,6 @@
 # IMU_Logger_Python
- A Python script for collecting data from multiple ICM20948 inertial measurement unit (IMU) sensors connected to a TCA9548A I2C multiplexer.
+ This program is a Python script for collecting data from multiple ICM20948 inertial measurement unit (IMU) sensors connected to a TCA9548A I2C multiplexer. The program imports several libraries, including the deque library from the collections module and libraries for interacting with the multiplexer and IMUs through the Qwiic I2C protocol.
+
+The program defines a function write_data which writes the data points stored in a deque object to a CSV file. It also defines a function runExample which initializes a deque object and writes data points from the IMUs to the deque at a specified interval. The data points include the sensor number, timestamp, and raw sensor readings for acceleration, gyration, and magnetization. The runExample function also writes the data points in the deque to the CSV file using the write_data function.
+
+In the if __name__ == '__main__': block, the program initializes the multiplexer and the two IMU sensors, adds them to a list, and then runs the runExample function with the list of IMUs as an argument. The program has a try-except block to handle keyboard interrupts or system exits, allowing the user to terminate the program by pressing CTRL+C.
